@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eval Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Evalify Calculator</h2>
+        <button id="calculateBtn">Calculate Internals</button>
+        
+        <div id="error-msg" class="hidden">
+            No scores found. Please open the "Completed Quizzes" page!
+        </div>
+
+        <div id="results" class="hidden">
+            <div class="card">
+                <span class="label">Quizzes Found</span>
+                <span class="value" id="totalQuizzes">0</span>
+            </div>
+            <div class="card">
+                <span class="label">Best 6 Average</span>
+                <span class="value" id="best6Avg">0%</span>
+            </div>
+            <div class="card highlight">
+                <span class="label">Internals (/30)</span>
+                <span class="value" id="finalMarks" style="color: #10b981;">0</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script> 
+</body>
+</html>
