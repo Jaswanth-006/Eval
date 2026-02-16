@@ -2,35 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eval Dashboard</title>
+    <title>Eval Dashboard Pro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Evalify Calculator</h2>
-        <button id="calculateBtn">Calculate Internals</button>
+    <div class="header">
+        <h2>Evalify Analytics</h2>
+        <span id="totalQuizzesBadge" class="badge hidden">0 Found</span>
+    </div>
+
+    <button id="scrapeBtn" class="main-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+        Analyze Page
+    </button>
+    
+    <div id="error-msg" class="error-box hidden">
+        No quiz scores found on this page.
+    </div>
+
+    <div id="dashboard" class="hidden">
         
-        <div id="error-msg" class="hidden">
-            No scores found. Please open the "Completed Quizzes" page!
+        <div class="selector-label">Calculate Best Of:</div>
+        <div class="selector-bar" id="nSelector">
+            <button data-n="5">5</button>
+            <button data-n="6" class="active">6</button>
+            <button data-n="7">7</button>
+            <button data-n="8">8</button>
+            <button data-n="9">9</button>
+            <button data-n="10">10</button>
         </div>
 
-        <div id="results" class="hidden">
-            <div class="card">
-                <span class="label">Quizzes Found</span>
-                <span class="value" id="totalQuizzes">0</span>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Selected Average</span>
+                <span class="stat-value" id="displayAvg">0%</span>
             </div>
-            <div class="card">
-                <span class="label">Best 6 Average</span>
-                <span class="value" id="best6Avg">0%</span>
+            <div class="stat-card highlight">
+                <span class="stat-label">Internals (/30)</span>
+                <span class="stat-value" id="displayInternals">0</span>
             </div>
-            <div class="card highlight">
-                <span class="label">Internals (/30)</span>
-                <span class="value" id="finalMarks" style="color: #10b981;">0</span>
-            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="topScoresChart"></canvas>
         </div>
     </div>
     
+    <script src="chart.min.js"></script>
     <script src="popup.js"></script> 
 </body>
 </html>
